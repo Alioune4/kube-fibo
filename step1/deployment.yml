@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+
+kind: Deployment
+metadata:
+  name: fibo-deployment
+  labels:
+    app: fibo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fibo
+  template:
+    metadata:
+      labels:
+        app: fibo
+    spec:
+      containers:
+        - name: fibo
+          image: zarakailloux/fibo:1.5.2
+          ports:
+            - containerPort: 80
