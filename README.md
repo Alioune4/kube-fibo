@@ -1,5 +1,2 @@
-# Subject link
-https://hackmd.io/@zarak/ByfE43kxkx
-
-# Course link
-https://zarak.fr/resources/Kubernetes.pdf
+# Author
+Papa Alioune TOURE (papa-alioune.toure@epita.fr)
