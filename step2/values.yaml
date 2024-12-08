@@ -1,0 +1,5 @@
+fibo:
+  replicaCount: 1
+  image:
+    name: zarakailloux/fibo
+    tag: 1.5.2

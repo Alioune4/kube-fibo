@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+
+kind: Deployment
+metadata:
+  name: fibo-deployment
+  labels:
+    app: fibo
+spec:
+  replicas: {{ .Values.fibo.replicaCount }}
+  selector:
+    matchLabels:
+      app: fibo
+  template:
+    metadata:
+      labels:
+        app: fibo
+    spec:
+      containers:
+        - name: fibo
+          image: "{{ .Values.fibo.image.name }}:{{ .Values.fibo.image.tag }}"
+          ports:
+            - name: http
+              containerPort: 5000
+          env:
+            - name: ENDPOINT
+              value: "http://fibo-service:80"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 3
+            periodSeconds: 3
+          readinessProbe:
+            httpGet:
+              path: /readiness
+              port: 5000
+            initialDelaySeconds: 3
+            periodSeconds: 3
