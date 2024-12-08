@@ -6,7 +6,7 @@ metadata:
   labels:
     app: fibo
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: fibo
@@ -19,4 +19,8 @@ spec:
         - name: fibo
           image: zarakailloux/fibo:1.5.2
           ports:
-            - containerPort: 80
+            - name: http
+              containerPort: 5000
+          env:
+            - name: ENDPOINT
+              value: localhost
