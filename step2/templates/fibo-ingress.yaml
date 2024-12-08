@@ -4,7 +4,9 @@ kind: Ingress
 metadata:
   name: fibo-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    {{- range $key, $value := .Values.fibo.ingress.annotations }}
+    {{ $key }}: {{ $value | quote }}
+    {{- end }}
 spec:
   rules:
     - host: {{ .Values.fibo.ingress.host }}

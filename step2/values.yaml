@@ -6,3 +6,5 @@ fibo:
   ingress:
     enabled: true
     host: localhost
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /
