@@ -2,7 +2,7 @@ fibo:
   replicaCount: 3
   image:
     name: zarakailloux/fibo
-    tag: 1.5.2
+    tag: 1.7.0
   ingress:
     enabled: true
     host: localhost
